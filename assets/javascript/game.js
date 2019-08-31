@@ -14,8 +14,11 @@ let wins = 0
 let losses = 0
 let guesses = 9
 
-// player input event
+// player input event - letter interpretation
 
 document.onkeyup = function (event) {
-  console.log(event.key)
+  if (event.keyCode >= 65 && event.keyCode <= 90) {
+    console.log(event.key) 
+  }
+  
 }
