@@ -18,18 +18,23 @@ let wins = 0
 let losses = 0
 let guesses = 9
 
-document.getElementById(`wins`).append(` ` + wins)
-document.getElementById(`losses`).append(` ` + losses)
-document.getElementById(`guessesLeft`).append(` ` + guesses)
+document.getElementById(`wins`).innerHTML = `Wins: ` + wins
 
+document.getElementById(`losses`).innerHTML = `Losses: ` + losses
+
+document.getElementById(`guessesLeft`).innerHTML = `Guesses Left: ` + guesses
 
 // player input event - letter interpretation
 
-const guess = document.onkeyup = (event) => {
+document.onkeyup = (event) => {
   if (event.keyCode >= 65 && event.keyCode <= 90) {
     console.log(event.key) 
+
+    guesses--
     
     document.getElementById(`soFar`).append(` ` + event.key)
+
+    
   }
   
 }
@@ -37,8 +42,5 @@ const guess = document.onkeyup = (event) => {
 
 // conditionals
 
-const compare = () => {
-  if (randomLetter === guess) {
 
-  }
-}
+
