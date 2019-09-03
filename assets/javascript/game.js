@@ -2,7 +2,6 @@
 let wins = 0
 let losses = 0
 let guesses = 9
-
 // document.getElementById(`wins`).innerHTML = `Wins: ` + wins
 
 // document.getElementById(`losses`).innerHTML = `Losses: ` + losses
@@ -47,21 +46,18 @@ document.onkeyup = (event) => {
     if (event.key === compLetter) {
       wins++
       guesses = 9
-      randomLetter()
-      changeDisplay()
+      const compLetter = randomLetter()
+      console.log(compLetter)
     } else {
       losses++
-      changeDisplay()
       
     }
 
-    
+    changeDisplay()
   }
   
 }
 
-
-// conditionals
 
 
 
