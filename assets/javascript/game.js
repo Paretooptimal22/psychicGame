@@ -2,11 +2,6 @@
 let wins = 0
 let losses = 0
 let guesses = 9
-// document.getElementById(`wins`).innerHTML = `Wins: ` + wins
-
-// document.getElementById(`losses`).innerHTML = `Losses: ` + losses
-
-// document.getElementById(`guessesLeft`).innerHTML = `Guesses Left: ` + guesses
 
 
 // letters array
@@ -37,9 +32,9 @@ document.onkeyup = (event) => {
   if (event.keyCode >= 65 && event.keyCode <= 90) {
     console.log(event.key) 
     guesses--
-    changeDisplay()
     
-    // document.getElementById(`soFar`).append(` ` + event.key)
+    
+    // document.getElementById(`display`).append(` ` + event.key)
 
 
     // win: player guess = randomLetter
@@ -54,7 +49,13 @@ document.onkeyup = (event) => {
     }
 
     changeDisplay()
+
+    // run out of guesses
+    if (guesses === 0) {
+      alert(`You Lose`)
+    }
   }
+  
   
 }
 
