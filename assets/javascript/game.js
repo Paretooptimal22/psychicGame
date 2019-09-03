@@ -53,6 +53,7 @@ document.onkeyup = (event) => {
     // run out of guesses
     if (guesses === 0) {
       alert(`You Lose`)
+      location.reload()
     }
   }
   
