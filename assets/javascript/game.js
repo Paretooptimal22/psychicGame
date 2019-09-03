@@ -37,7 +37,7 @@ changeDisplay()
 document.onkeyup = (event) => {
   if (event.keyCode >= 65 && event.keyCode <= 90) {
     console.log(event.key) 
-
+    guesses--
     changeDisplay()
     
     // document.getElementById(`soFar`).append(` ` + event.key)
@@ -46,8 +46,13 @@ document.onkeyup = (event) => {
     // win: player guess = randomLetter
     if (event.key === compLetter) {
       wins++
+      guesses = 9
+      randomLetter()
+      changeDisplay()
     } else {
       losses++
+      changeDisplay()
+      
     }
 
     
