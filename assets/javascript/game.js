@@ -46,6 +46,8 @@ document.onkeyup = (event) => {
     // win: player guess = randomLetter
     if (event.key === compLetter) {
       wins++
+    } else {
+      losses++
     }
 
     
