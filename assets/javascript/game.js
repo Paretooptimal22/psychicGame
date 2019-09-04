@@ -2,19 +2,17 @@
 let wins = 0
 let losses = 0
 let guesses = 9
-
+let letterGuess = []
 
 // letters array
 const letters = [ `a`, `b`, `c`, `d`, `e`, `f`, `g`, `h`, `i`, `j`, `k`, `l`, `m`, `n`, `o`, `p`, `q`, `r`, `s`, `t`, `u`, `v`, `w`, `x`, `y`, `z` ]
 
 
 // select random letter 
-const randomLetter = () => {
-  return letters[Math.floor(Math.random()*letters.length)]
-}
+let randomLetter = (letters[Math.floor(Math.random()*letters.length)])
 
-const compLetter = randomLetter()
-console.log(compLetter)
+console.log(randomLetter)
+
 
 const changeDisplay = () => {
   document.getElementById(`display`).innerHTML = `
@@ -22,7 +20,7 @@ const changeDisplay = () => {
   <h3>Wins: ${wins}</h3>
   <h3>Losses: ${losses}</h3>
   <h3>Guesses left: ${guesses}</h3>
-  <h3>Your guesses so far:</h3>
+  <h3>Your guesses so far: ${letterGuess}</h3>
   `
 }
 changeDisplay()
@@ -33,18 +31,17 @@ document.onkeyup = (event) => {
     console.log(event.key) 
     guesses--
     
-    
-    // document.getElementById(`display`).append(` ` + event.key)
-
 
     // win: player guess = randomLetter
-    if (event.key === compLetter) {
+    if (event.key === randomLetter) {
       wins++
       guesses = 9
-      const compLetter = randomLetter()
-      console.log(compLetter)
+      randomLetter = (letters[Math.floor(Math.random() * letters.length)])
+      console.log(randomLetter)
     } else {
-      losses++
+      letterGuess.push(` ` + event.key)
+      
+      // letterGuess = letterGuess + ` ` + event.key
       
     }
 
@@ -52,8 +49,14 @@ document.onkeyup = (event) => {
 
     // run out of guesses
     if (guesses === 0) {
-      alert(`You Lose`)
-      location.reload()
+      losses++
+      guesses = 9
+      letterGuess = []
+      randomLetter = (letters[Math.floor(Math.random() * letters.length)])
+      console.log(randomLetter)
+      changeDisplay()
+      
+      
     }
   }
   
